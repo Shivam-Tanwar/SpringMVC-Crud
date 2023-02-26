@@ -9,7 +9,7 @@
 <body>
 <h1>this is my index page(mvc)</h1>
 <a href="signUpPage">Click to see signup page</a><br>
-<!-- <a href="loginUpPage">Click to see login page</a><br> -->
-<!-- <a href="viewRecordsPage">Click to see view records page</a><br> -->
+<a href="loginUpPage">Click to see login page</a><br>
+<a href="viewRecordsPage">Click to see view records page</a><br>
+<a href="fileupload">Click to see view UploadImg page</a><br>
 </body>
-</html>

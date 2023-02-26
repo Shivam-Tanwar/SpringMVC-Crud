@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -72,12 +73,17 @@ public class EmployeeDao {
 		return jdbcTemplate.update(myQuery);
 	}
 	public int updateEmployee(Employee e) {
-		String myQuery = "update employee2 set name='"+e.getName()+"' where id='"+e.getId()+"'";
+		String myQuery = "update employee2 set name='"+e.getName()+"' where id="+e.getId()+"";
 		return jdbcTemplate.update(myQuery);
 	}
 	public int deleteEmployee(Employee e) {
 		String myQuery = "delete from employee2 where id="+e.getId()+"";
 		return jdbcTemplate.update(myQuery);
+	}
+
+	public Employee getEmployeeById(int id) {
+		String myQuery = "select * from employee2 where id=?";
+		return jdbcTemplate.queryForObject(myQuery, new Object[] {id}, new BeanPropertyRowMapper<Employee>(Employee.class));
 	}
 
 }
